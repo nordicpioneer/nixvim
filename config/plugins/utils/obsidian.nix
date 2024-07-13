@@ -1,22 +1,22 @@
 {
   plugins.obsidian = {
-    enable = false;
+    enable = true;
     settings = {
       workspaces = [
         {
-          name = "SecondBrain";
-          path = "~/projects/personal/SecondBrain";
+          name = "Personal";
+          path = "~/github/Obsidian-backupfork";
         }
       ];
       templates = {
-        subdir = "templates";
+        subdir = "Templates";
         dateFormat = "%Y-%m-%d";
         timeFormat = "%H:%M";
         substitutions = {};
       };
 
       dailyNotes = {
-        folder = "0_Daily_Notes";
+        folder = "001 journals";
         dateFormat = "%Y-%m-%d";
         aliasFormat = "%B %-d, %Y";
       };
