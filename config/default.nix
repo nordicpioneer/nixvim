@@ -11,7 +11,6 @@ _: {
 
     # Completion
     ./plugins/cmp/cmp.nix
-    ./plugins/cmp/cmp-copilot.nix
     ./plugins/cmp/lspkind.nix
 
     # Snippets
@@ -24,7 +23,6 @@ _: {
     ./plugins/editor/illuminate.nix
     ./plugins/editor/indent-blankline.nix
     ./plugins/editor/todo-comments.nix
-    ./plugins/editor/copilot-chat.nix
     ./plugins/editor/navic.nix
 
     # UI plugins
