@@ -55,7 +55,10 @@
 
         devShells = {
           default = with pkgs;
-            mkShell {inherit (self'.checks.pre-commit-check) shellHook;};
+            mkShell {
+              buildInputs = [nvim];
+              inherit (self'.checks.pre-commit-check) shellHook;
+            };
         };
       };
     };
