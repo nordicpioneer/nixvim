@@ -68,6 +68,7 @@
         ];
       };
     };
+    sniprun.enable = true;
   };
   extraConfigLua = ''
   '';
