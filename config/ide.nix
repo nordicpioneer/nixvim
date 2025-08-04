@@ -69,6 +69,13 @@
       };
     };
     sniprun.enable = true;
+    orgmode = {
+      enable = true;
+      settings = {
+        org_agenda_files = "~/org.personal/**/*";
+        org_default_notes_file = "~/org.personal/refile.org";
+      };
+    };
   };
   extraConfigLua = ''
   '';
