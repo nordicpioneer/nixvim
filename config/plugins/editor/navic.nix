@@ -1,4 +1,5 @@
 _: {
+  # winbar/statusline showing current code context/breadcrumbs
   plugins.navic = {
     enable = true;
     separator = "  ";

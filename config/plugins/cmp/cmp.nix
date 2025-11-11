@@ -1,6 +1,10 @@
 {
   plugins = {
     cmp-emoji = {enable = true;};
+    cmp-r = {enable = true;};
+    cmp-dictionary = {enable = true;};
+    cmp-pandoc-references = {enable = true;};
+    cmp-pandoc-nvim = {enable = true;};
     cmp = {
       enable = true;
       settings = {
@@ -22,7 +26,6 @@
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
             keywordLength = 3;
           }
-          {name = "copilot";}
           {
             name = "path"; # file system paths
             keywordLength = 3;

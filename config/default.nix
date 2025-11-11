@@ -4,7 +4,6 @@ _: {
     ./settings.nix
     ./keymaps.nix
     ./auto_cmds.nix
-    ./file_types.nix
 
     # Themes
     ./plugins/themes/default.nix
@@ -25,6 +24,7 @@ _: {
     ./plugins/editor/todo-comments.nix
     ./plugins/editor/navic.nix
 
+
     # UI plugins
     ./plugins/ui/bufferline.nix
     ./plugins/ui/lualine.nix
@@ -32,7 +32,6 @@ _: {
 
     # LSP and formatting
     ./plugins/lsp/lsp.nix
-    ./plugins/lsp/conform.nix
     ./plugins/lsp/fidget.nix
 
     # Git
@@ -42,9 +41,6 @@ _: {
     # Utils
     ./plugins/utils/telescope.nix
     ./plugins/utils/whichkey.nix
-    ./plugins/utils/extra_plugins.nix
-    ./plugins/utils/mini.nix
-    ./plugins/utils/markdown-preview.nix
-    ./plugins/utils/obsidian.nix
+    ./plugins/utils/r-nvim.nix
   ];
 }

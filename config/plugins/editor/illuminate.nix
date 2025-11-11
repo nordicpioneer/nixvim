@@ -1,4 +1,5 @@
 {
+  # highlight other uses of word under cursor
   plugins.illuminate = {
     enable = true;
     underCursor = false;

@@ -1,9 +1,5 @@
 {pkgs, ...}: {
   extraPlugins = with pkgs.vimPlugins; [
-    nvim-web-devicons
-    quarto-nvim
+     #R-nvim
   ];
-  plugins.otter.enable = true;
-  plugins.jupytext.enable = true;
-  plugins.molten.enable = true;
 }

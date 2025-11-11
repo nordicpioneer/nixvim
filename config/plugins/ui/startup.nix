@@ -56,16 +56,6 @@
             "Telescope file_browser"
             "fe"
           ]
-          [
-            " Copilot Chat"
-            "CopilotChat"
-            "ct"
-          ]
-          [
-            "󰧑 SecondBrain"
-            "edit ~/github/Obsidian-backupfork"
-            "sb"
-          ]
         ];
         highlight = "string";
         defaultColor = "";
