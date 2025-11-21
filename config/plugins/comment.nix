@@ -1,6 +1,6 @@
 {
-  colorschemes = {
-    moonfly = {
+  plugins = {
+    comment = {
       enable = true;
     };
   };

@@ -7,10 +7,13 @@
       enable = true;
       servers = {
         marksman = {enable = true;};
-        r_language_server = {enable = true;};
+        r_language_server = {
+          enable = true;
+          package = pkgs.rPackages.languageserver;
+        };
         pyright = {enable = true;};
         html = {enable = true;};
-        lua-ls = {enable = true;};
+        lua_ls = {enable = true;};
       };
 
       keymaps = {

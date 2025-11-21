@@ -1,0 +1,3 @@
+{
+  colorschemes.moonfly.enable = true;
+}

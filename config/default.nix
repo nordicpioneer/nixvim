@@ -5,42 +5,44 @@ _: {
     ./keymaps.nix
     ./auto_cmds.nix
 
-    # Themes
-    ./plugins/themes/default.nix
+    # Themes and UI
+    ./plugins/themes.nix
+    #    ./plugins/bufferline.nix
+    ./plugins/startup.nix
+    ./plugins/mini-hipatterns.nix
+    #    ./plugins/bullets.nix
 
     # Completion
-    ./plugins/cmp/cmp.nix
-    ./plugins/cmp/lspkind.nix
+    ./plugins/cmp.nix
 
     # Snippets
-    ./plugins/snippets/luasnip.nix
+    #    ./plugins/snippets/luasnip.nix
 
     # Editor plugins and configurations
-    ./plugins/editor/neo-tree.nix
+    ./plugins/mini-files.nix
+    ./plugins/mini-jump2d.nix
+    ./plugins/comment.nix
     ./plugins/editor/treesitter.nix
+    # +10 // line 10
+    #  plugins.treesitter-textobjects = {
+    #    enable = false;
+
     ./plugins/editor/undotree.nix
     ./plugins/editor/illuminate.nix
     ./plugins/editor/indent-blankline.nix
-    ./plugins/editor/todo-comments.nix
-    ./plugins/editor/navic.nix
-
-
-    # UI plugins
-    ./plugins/ui/bufferline.nix
-    ./plugins/ui/lualine.nix
-    ./plugins/ui/startup.nix
+    #    ./plugins/editor/todo-comments.nix
 
     # LSP and formatting
     ./plugins/lsp/lsp.nix
-    ./plugins/lsp/fidget.nix
 
     # Git
     ./plugins/git/lazygit.nix
     ./plugins/git/gitsigns.nix
 
     # Utils
-    ./plugins/utils/telescope.nix
-    ./plugins/utils/whichkey.nix
-    ./plugins/utils/r-nvim.nix
+    ./plugins/telescope.nix
+    ./plugins/whichkey.nix
+    ./plugins/r-nvim.nix
+    ./plugins/iron.nix
   ];
 }

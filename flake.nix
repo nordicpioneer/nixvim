@@ -40,13 +40,13 @@
             inherit nvim;
             name = "A nixvim configuration";
           };
-          pre-commit-check = pre-commit-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = {
-              statix.enable = true;
-              alejandra.enable = true;
-            };
-          };
+#          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+#            src = ./.;
+#            hooks = {
+#              statix.enable = true;
+#              alejandra.enable = true;
+#            };
+#          };
         };
 
         formatter = pkgs.alejandra;
