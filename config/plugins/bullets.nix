@@ -1,0 +1,5 @@
+{
+  plugins.bullets = {
+    enable = true;
+  };
+}

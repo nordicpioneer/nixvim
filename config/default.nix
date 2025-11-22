@@ -10,7 +10,7 @@ _: {
     #    ./plugins/bufferline.nix
     ./plugins/startup.nix
     ./plugins/mini-hipatterns.nix
-    #    ./plugins/bullets.nix
+    ./plugins/bullets.nix
 
     # Completion
     ./plugins/cmp.nix

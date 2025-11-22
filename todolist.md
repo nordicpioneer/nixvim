@@ -1,5 +1,6 @@
 
 # General Configuration
+
 - [x] ./settings.nix
 - [x] ./keymaps.nix
 - [x] ./auto_cmds.nix
@@ -9,23 +10,6 @@
 - [x] ./file_types.nix
     - Remove file
 
-# Themes
-- [x] ./plugins/themes/default.nix
-    - Removed integrations objects
-        - neotree
-        - notify
-        - native_lsp
-    - Keep
-        - functionality
-            - cmp
-        - custom gui and formatting
-            - gitsigns
-            - which_key
-            - illuminate (highlight other instances of word/varname
-            - mini base16?
-    - 
-        
-        
 
 # Completion
 ./plugins/cmp/cmp.nix
