@@ -22,13 +22,10 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["aarch64-linux" "x86_64-linux" "aarch64-darwin" "x86_64-darwin"];
 
-      perSystem = {
-        system,
-        pkgs,
-        self',
-        lib,
-        ...
-      }: let
+      nixpkgs = { overlays = import ./overlays; };
+
+      perSystem = { system, pkgs, self', lib, ...}: 
+      let
         nixvim' = nixvim.legacyPackages.${system};
         nvim = nixvim'.makeNixvimWithModule {
           inherit pkgs;
