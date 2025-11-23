@@ -7,6 +7,7 @@ _: {
 
     # Themes and UI
     ./plugins/themes.nix
+    ./plugins/web-devicons.nix
     #    ./plugins/bufferline.nix
     ./plugins/startup.nix
     ./plugins/mini-hipatterns.nix
