@@ -8,6 +8,10 @@
         vim.fn.sign_define("diagnosticsignhint", { text = "󰌵", texthl = "diagnostichint", linehl = "", numhl = "" })
         vim.fn.sign_define("diagnosticsigninfo", { text = " ", texthl = "diagnosticinfo", linehl = "", numhl = "" })
       '';
+    
+    globals = {
+      clipboard = "osc52";  # -> vim.g.clipboard = "osc52" # make yank available to system clipboard
+    };
 
     clipboard = {
       providers.wl-copy.enable = true;
@@ -16,7 +20,7 @@
     opts = {
       number = true;
       relativenumber = true;
-      clipboard = "unnamedplus";
+      clipboard = "unnamedplus"; # make yank available to system clipboard
       tabstop = 2;
       softtabstop = 2;
       showtabline = 2;

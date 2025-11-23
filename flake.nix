@@ -1,5 +1,5 @@
 {
-  description = "NPs nvim config for basic R development";
+  description = "NPs nvim config for basic R and python development";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -7,52 +7,32 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-    };
   };
 
   outputs = {
     nixpkgs,
     nixvim,
     flake-parts,
-    pre-commit-hooks,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["aarch64-linux" "x86_64-linux" "aarch64-darwin" "x86_64-darwin"];
-
-      nixpkgs = { overlays = import ./overlays; };
-
-      perSystem = { system, pkgs, self', lib, ...}: 
+      perSystem = { system, pkgs, self', lib, ... }: 
       let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = import ./overlays;  # overlays/default.nix → list of overlays
+        };
         nixvim' = nixvim.legacyPackages.${system};
         nvim = nixvim'.makeNixvimWithModule {
           inherit pkgs;
           module = ./config;
         };
       in {
-        checks = {
-          default = pkgs.nixvimLib.check.mkTestDerivationFromNvim {
-            inherit nvim;
-            name = "A nixvim configuration";
-          };
-#          pre-commit-check = pre-commit-hooks.lib.${system}.run {
-#            src = ./.;
-#            hooks = {
-#              statix.enable = true;
-#              alejandra.enable = true;
-#            };
-#          };
-        };
-
-        formatter = pkgs.alejandra;
-
         packages.default = nvim;
-
         devShells = {
           default = with pkgs;
-            mkShell {inherit (self'.checks.pre-commit-check) shellHook;};
+            mkShell {inherit shellHook;};
         };
       };
     };
