@@ -4,26 +4,7 @@
       enable = true;
       folding = false;
       nixvimInjections = true;
-
-      # config guide for unstable nixpkgs here:
-      # https://nixos.org/manual/nixpkgs/unstable/#neovim-plugin-treesitter
-      grammarPackages = [
-        (pkgs.vimPlugins.nvim-treesitter.withPlugins
-          (plugins:
-            with plugins; [
-              bash
-              nix
-              r
-              lua
-              markdown
-              sql
-              typst
-              latex
-              bibtex
-              json
-              yaml
-            ]))
-      ];
+      grammarPackages = pkgs.vimPlugins.nvim-treesitter.allGrammars;
     };
 
     # ui context for functions, loops, objects etc.

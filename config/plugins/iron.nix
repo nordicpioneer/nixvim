@@ -12,7 +12,7 @@
 
 
       -- where to open REPL
-      repl_open_cmd = view.right(60),
+      repl_open_cmd = "botright vertical split",
 
       repl_definition = {
         r = {
