@@ -8,7 +8,7 @@ final: prev: {
         owner = "R-nvim";
         repo  = "R.nvim";
         rev   = "v0.99.1";
-        sha256 = "";
+        sha256 = "sha256-GUnRsFF6MlUcFfEsNmm0zXauG3+Pf22OOJNXszOvs+M=";
       };
       sourceRoot = "source/nvimcom";
     };
@@ -22,7 +22,6 @@ final: prev: {
       ++ (with final.rPackages; [
         languageserver
         nvimcom
-	terminalgraphics
       ]);
   };
 
@@ -35,7 +34,7 @@ final: prev: {
         owner = "R-nvim";
         repo  = "R.nvim";
         rev   = "v0.99.1";
-        sha256 = "";
+        sha256 = "sha256-GUnRsFF6MlUcFfEsNmm0zXauG3+Pf22OOJNXszOvs+M=";
       };
       # rEnv will be pulled into the Neovim runtime as a dependency
       runtimeDeps = [ final.rEnv ];
