@@ -1,36 +1,58 @@
 {
-  plugins.iron = {
-    settings = {
-      highlight = {italic = true;};
-      keymaps = {
-        toggle_repl = "<space>rr";
-        restart_repl = "<space>rR";
-        send_line = "<space>sl";
-        send_motion = "<space>sc";
-        send_file = "<space>sf";
-        send_paragraph = "<space>sp";
-        visual_send = "<space>sc";
-      };
+  plugins.iron.enable = true;
+
+  extraConfigLua = ''
+    local iron   = require("iron.core")
+    local view   = require("iron.view")
+    local common = require("iron.fts.common")
+
+    iron.setup {
+      highlight = { italic = true },
+      scratch_repl = true,
+
+
+      -- where to open REPL
+      repl_open_cmd = view.right(60),
+
       repl_definition = {
         r = {
-          command = ["R" "--no-save" "--quiet"];
-          format = {
-            __raw = "require('iron.fts.common').bracketed_paste_r";
-          };
-        };
+          command = { "radian", "--quiet", "--no-save" },
+          format = common.bracketed_paste_r,
+        },
         python = {
-          command = ["python3"];
-          format = {
-            __raw = "require('iron.fts.common').bracketed_paste_python";
-          };
-          block_dividers = ["# %%" "#%%"];
-        };
-        sh = {command = ["bash" "zsh"];};
-      };
-      repl_open_cmd = {
-        __raw = "require(\"iron.view\").bottom(40)";
-      };
-      scratch_repl = true;
-    };
-  };
+          command = { "ipython" },
+          format = common.bracketed_paste_python,
+          block_dividers = { "# %%", "##%%", "#%%" },
+        },
+        sh = {
+          command = { "zsh" },
+        },
+      },
+
+      -- ⭐ Preferred REPL executables
+      preferred = {
+        r = "radian",
+        python = "ipython",
+      },
+
+      -- 🚀 Usable default keymaps
+      keymaps = {
+        toggle_repl       = "<space>rr",
+        restart_repl      = "<space>rR",
+
+        send_motion       = "<space>sm",
+        visual_send       = "<space>sc",
+        send_line         = "<space>sl",
+        send_file         = "<space>sf",
+        send_paragraph    = "<space>sp",
+        send_until_cursor = "<space>su",
+
+        cr        = "<space>s<CR>",
+        interrupt = "<space>s<Space>",
+        exit      = "<space>sq>",
+        clear     = "<space>cl>",
+      },
+    }
+
+  '';
 }
