@@ -1,6 +1,6 @@
 let
   overlayfiles = [
-    ./r-nvim.nix
+    # remove r IDE for minimal configuration ./r-nvim.nix
   ];
 in
 map import overlayfiles
