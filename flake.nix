@@ -32,7 +32,18 @@
         packages.default = nvim;
         devShells = {
           default = with pkgs;
-            mkShell {inherit shellHook;};
+            mkShell {
+              packages = [
+                nvim          # Neovim from nixvim
+                pkgs.rEnv     # R runtime from overlay
+                #pkgs.python312
+                #pkgs.python312Packages.python-lsp-server
+              ];
+
+              shellHook = ''
+                echo "🔧 R + Python + Neovim devShell loaded"
+              '';
+            };
         };
       };
     };
