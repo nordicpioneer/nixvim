@@ -1,1 +1,2 @@
 - [ ] setup in conf.nix
+- [ ] test m_taskwarrior_d with nix build

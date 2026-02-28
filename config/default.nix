@@ -32,6 +32,7 @@ _: {
     ./plugins/editor/illuminate.nix
     ./plugins/editor/indent-blankline.nix
     ./plugins/editor/todo-comments.nix
+    ./plugins/editor/m_taskwarrior_d.nix
 
     # LSP and formatting
     ./plugins/lsp/lsp.nix
