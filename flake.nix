@@ -1,5 +1,5 @@
 {
-  description = "NPs nvim config for basic R and python development";
+  description = "nixvim ide with batteries";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

@@ -4,5 +4,11 @@
   - [ ] setup zellij-config for zellij-nav-nvim on zellij side $id{94c31f71-9456-47d7-9a83-4603228b24f9}
       - [ ] metode for installasjon av zellij-pluginer $id{fb830c4e-9bb5-46d2-a541-2fc36747e2d9}
   - [ ] setup neovim-config options for zellij-nav-nvim on neovim side $id{adbe42a7-a5d8-42d6-a81c-db9004ff4555}
-- [ ] setup obsidian-nvim in nixvim $id{6a9db4a1-e1e3-45ee-a875-06756421f307}
+- [o] setup obsidian-nvim in nixvim $id{6a9db4a1-e1e3-45ee-a875-06756421f307}
+  - [X] test obsidian-nvim in nixvim with nix build $id{c2cfb8c9-d38f-4ace-b73a-265852dbdc68}
+  - [ ] test template for daily notes in obsidian-nvim $id{ac1d1c3b-fe68-4d09-8b6e-7e4b1afb37c2}
+  - [ ] vurdere nvim plugins integrasjoner for obsidian-nvim $id{5b91915e-e404-44a9-86e4-d6ee7e4dfe04}
+- [ ] sette opp obsidian.bases i nixvim project:lab +konfig +nix +nvim $id{90605968-8f12-4879-ab66-f6370a278289}
+  - [ ] lage nix overlay for obsidian.bases i nixvim $id{2616527e-5877-45f7-89bc-46837aacb6ee}
+  - [ ] teste obsidian.bases med nix build i nixvim konfig $id{6eaef302-152d-4c36-8b5a-5fa2f5e67d83}
 
