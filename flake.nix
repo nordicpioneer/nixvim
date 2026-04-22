@@ -22,6 +22,12 @@
         pkgs = import nixpkgs {
           inherit system;
           overlays = import ./overlays;  # overlays/default.nix → list of overlays
+          config = {
+            allowUnfreePredicate = pkg:
+              builtins.elem (lib.getName pkg) [
+                "claude-code"
+              ];
+          };
         };
         nixvim' = nixvim.legacyPackages.${system};
         nvim = nixvim'.makeNixvimWithModule {
@@ -41,7 +47,7 @@
               ];
 
               shellHook = ''
-                echo "🔧 R + Python + Neovim devShell loaded"
+                echo "loaded ide for R + Python"
               '';
             };
         };
