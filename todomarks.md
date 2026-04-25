@@ -1,2 +1,12 @@
-- [ ] setup in conf.nix
-- [ ] test m_taskwarrior_d with nix build
+- [ ] explicitly define `plugins.web-devicons.enable` or enable `plugins.mini.enable` with `plugins.mini.modules.icons` and `plugins.mini.mockDevIcons`. $id{aeee6912-60a2-4ccf-90ac-7a3c9db6cab6}
+    - evaluation warning: The option `plugins.startup.parts'
+        plugins.startup.settings.parts
+    - evaluation warning: The option `plugins.startup.colors.foldedSection' defined in `/nix/store/i6pj3piavhv67p9zkdgpnaf4cvngsw9g-source/config/plugins/startup.nix' has been renamed to `plugins.startup.settings.colors.folded_section'.
+    - evaluation warning: The option `plugins.startup.colors.background' defined in `/nix/store/i6pj3piavhv67p9zkdgpnaf4cvngsw9g-source/config/plugins/startup.nix' has been renamed to `plugins.startup.settings.colors.background'.
+    - evaluation warning: The option `plugins.startup.options.paddings' defined in `/nix/store/i6pj3piavhv67p9zkdgpnaf4cvngsw9g-source/config/plugins/startup.nix' has been renamed to `plugins.startup.settings.options.paddings'.
+    - evaluation warning: The option `plugins.startup.sections' defined in `/nix/store/i6pj3piavhv67p9zkdgpnaf4cvngsw9g-source/config/plugins/startup.nix' has been changed to `plugins.startup.settings' that has a different type. Please read `plugins.startup.settings' documentation and update your configuration accordingly.
+- [x] set up bullets.nvim $id{0ba044f0-baea-4a17-baca-374f5484c0e7}
+- [ ] set up ergoterm.nvim $id{ad930a59-cf39-4722-95c8-b61e4e6e94d0}
+- [ ] set up $id{cefe4fe9-cd9e-4f80-a208-945785927bcb}
+- [ ] nixvim startup asci-art endre til nvim-ide r, py $id{bcb76115-dfb5-445b-bb13-a9f4a2da428e}
+- [ ] nixvim add claude code nvim plugin $id{a6ba4983-c5f9-4208-b958-fc5df02c756c}
