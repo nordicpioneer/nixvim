@@ -3,10 +3,15 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
     flake-parts.url = "github:hercules-ci/flake-parts";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-    };
+
+    nixvim.url = "github:nix-community/nixvim";
+
+    # OpenCode v1.14.31 Used by:
+    #   ./overlays/opencode-openai-codex-auth.nix
+    nixpkgs-opencode.url =
+      "github:nixos/nixpkgs/73c703c22422b8951895a960959dbbaca7296492";
   };
 
   outputs = {
@@ -21,8 +26,9 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = import ./overlays;  # overlays/default.nix → list of overlays
+          overlays = import ./overlays {inherit inputs; };
           config = {
+            allowUnfree = true;
             allowUnfreePredicate = pkg:
               builtins.elem (lib.getName pkg) [
                 "claude-code"
@@ -35,15 +41,19 @@
           module = ./config;
         };
       in {
-        packages.default = nvim;
+        packages = {
+          default = nvim;
+          inherit (pkgs)
+            opencode-openai-codex-auth
+            opencode-with-auth;
+        };
         devShells = {
           default = with pkgs;
             mkShell {
               packages = [
                 nvim          # Neovim from nixvim
                 pkgs.rEnv     # R runtime from overlay
-                #pkgs.python312
-                #pkgs.python312Packages.python-lsp-server
+                pkgs.opencode-with-auth # llm coding agents via different subscriptions, apis and providers
               ];
 
               shellHook = ''

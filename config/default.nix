@@ -34,6 +34,7 @@ _: {
     ./plugins/editor/todo-comments.nix
     ./plugins/editor/m_taskwarrior_d.nix
     ./plugins/editor/claude-code.nix
+    ./plugins/editor/opencode.nix
 
     # LSP and formatting
     ./plugins/lsp/lsp.nix
@@ -44,6 +45,7 @@ _: {
 
     # Utils
     ./plugins/telescope.nix
+    ./plugins/snacks.nix
     ./plugins/whichkey.nix
     ./plugins/r-nvim.nix
     ./plugins/iron.nix
