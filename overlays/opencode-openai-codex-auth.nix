@@ -5,10 +5,7 @@ final: prev:
 let
   opencodePkgs = import inputs.nixpkgs-opencode {
     system = final.stdenv.hostPlatform.system;
-
-    config = {
-      allowUnfree = true;
-    };
+    config.allowUnfree = true;
   };
 in {
   opencode = opencodePkgs.opencode;

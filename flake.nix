@@ -8,10 +8,12 @@
 
     nixvim.url = "github:nix-community/nixvim";
 
-    # OpenCode v1.14.31 Used by:
+    # OpenCode v1.14.30 Used by:
     #   ./overlays/opencode-openai-codex-auth.nix
+    # v1.14.35 segfaulted on aarch64-linux here, while v1.14.30 works
+    # with opencode-openai-codex-auth browser subscription login.
     nixpkgs-opencode.url =
-      "github:nixos/nixpkgs/73c703c22422b8951895a960959dbbaca7296492";
+      "github:nixos/nixpkgs/c6d65881c5624c9cae5ea6cedef24699b0c0a4c0";
   };
 
   outputs = {
@@ -58,6 +60,10 @@
 
               shellHook = ''
                 echo "loaded ide for R + Python"
+                mkdir -p "$HOME/.config/opencode"
+
+                cp ${./config/opencode.json} "$HOME/.config/opencode/opencode.json"
+                chmod u+w "$HOME/.config/opencode/opencode.json"
               '';
             };
         };

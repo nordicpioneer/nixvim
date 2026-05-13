@@ -6,7 +6,8 @@
     - evaluation warning: The option `plugins.startup.options.paddings' defined in `/nix/store/i6pj3piavhv67p9zkdgpnaf4cvngsw9g-source/config/plugins/startup.nix' has been renamed to `plugins.startup.settings.options.paddings'.
     - evaluation warning: The option `plugins.startup.sections' defined in `/nix/store/i6pj3piavhv67p9zkdgpnaf4cvngsw9g-source/config/plugins/startup.nix' has been changed to `plugins.startup.settings' that has a different type. Please read `plugins.startup.settings' documentation and update your configuration accordingly.
 - [x] set up bullets.nvim $id{0ba044f0-baea-4a17-baca-374f5484c0e7}
-- [ ] set up ergoterm.nvim $id{ad930a59-cf39-4722-95c8-b61e4e6e94d0}
-- [ ] set up $id{cefe4fe9-cd9e-4f80-a208-945785927bcb}
-- [ ] nixvim startup asci-art endre til nvim-ide r, py $id{bcb76115-dfb5-445b-bb13-a9f4a2da428e}
-- [ ] nixvim add claude code nvim plugin $id{a6ba4983-c5f9-4208-b958-fc5df02c756c}
+- [x] set up ergoterm.nvim $id{ad930a59-cf39-4722-95c8-b61e4e6e94d0}
+- [x] set up $id{cefe4fe9-cd9e-4f80-a208-945785927bcb}
+- [x] nixvim startup asci-art endre til nvim-ide r, py $id{bcb76115-dfb5-445b-bb13-a9f4a2da428e}
+- [x] nixvim add claude code nvim plugin $id{a6ba4983-c5f9-4208-b958-fc5df02c756c}
+- [ ] set up opencode.nvim with plugin for openai-codex models via subscription login $id{286ce754-2c96-4093-8428-5d58bb167bc5}
