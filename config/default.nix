@@ -33,7 +33,7 @@ _: {
     ./plugins/editor/indent-blankline.nix
     ./plugins/editor/todo-comments.nix
     ./plugins/editor/m_taskwarrior_d.nix
-    ./plugins/editor/cli_task_nvim.nix
+    ./plugins/editor/taskwarrior_nvim.nix
     ./plugins/editor/claude-code.nix
     ./plugins/editor/opencode.nix
 
