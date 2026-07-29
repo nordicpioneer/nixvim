@@ -31,6 +31,7 @@ _: {
     ./plugins/editor/undotree.nix
     ./plugins/editor/illuminate.nix
     ./plugins/editor/indent-blankline.nix
+    ./plugins/editor/aerial.nix
     ./plugins/editor/todo-comments.nix
     ./plugins/editor/m_taskwarrior_d.nix
     ./plugins/editor/taskwarrior_nvim.nix
