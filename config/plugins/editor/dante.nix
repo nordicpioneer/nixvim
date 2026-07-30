@@ -12,6 +12,29 @@
       api_key = "ollama",
     }
 
+    -- Non-default presets are not deep-merged with dante's built-in default
+    -- request.messages; include them explicitly.
+    local messages = {
+      {
+        role = "system",
+        content = [[
+You are an assistant responsible for correcting errors in text.
+Refine the spelling and grammar while closely adhering to the original version.
+
+- If the text is formatted in a specific syntax (e.g., LaTeX, Markdown, Vimdoc, ...), abide by that syntax.
+- Use the same language and terminology appropriate for the context.
+- Return only the enhanced text without commentary.
+- Maintain the integrity of the original text's line breaks and spacing (i.e., follow the original text's `\n`)
+
+Do NOT return the generated text enclosed in triple ticks (```).
+]],
+      },
+      {
+        role = "user",
+        content = "{{SELECTED_LINES}}",
+      },
+    }
+
     local function preset(model)
       return {
         client = client,
@@ -19,6 +42,7 @@
           model = model,
           temperature = 0.0001,
           stream = false,
+          messages = messages,
         },
       }
     end
