@@ -1,4 +1,7 @@
 {pkgs, ...}: {
+  # Dante opens a scratch *window* in a diff split, not a lasting listed buffer.
+  # Closing: focus that pane (<C-w>h/j/k/l), then :q or <C-w>q; optionally :diffoff
+  # on the remaining window. :ls / :bd NAME do not remove it (verified in use).
   extraPackages = [pkgs.curl];
 
   extraPlugins = with pkgs.vimPlugins; [
