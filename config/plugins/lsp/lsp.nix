@@ -7,10 +7,7 @@
       enable = true;
       servers = {
         marksman = {enable = true;};
-        r_language_server = {
-          enable = true;
-          package = pkgs.rPackages.languageserver;
-        };
+        # R LSP comes from jet.ark (Ark session-aware); do not enable r_language_server
         pyright = {enable = true;};
         html = {enable = true;};
         lua_ls = {enable = true;};

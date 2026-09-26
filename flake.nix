@@ -1,5 +1,5 @@
 {
-  description = "NPs nvim config for basic R and python development";
+  description = "Nixvim config for R (jet.ark) and Python (jet.ipy) development";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -7,6 +7,10 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nixvim.url = "github:nix-community/nixvim";
+
+    # Ark (posit-dev) needs a newer nixpkgs/rustc than the main pin; used only for pkgs.ark
+    nixpkgs-ark.url =
+      "github:nixos/nixpkgs/4975466d324710c576dc11ad614684e6bd8cad8e";
 
     # OpenCode v1.14.30 Used by:
     #   ./overlays/opencode-openai-codex-auth.nix
@@ -47,19 +51,25 @@
           default = nvim;
           inherit (pkgs)
             opencode-openai-codex-auth
-            opencode-with-auth;
+            opencode-with-auth
+            ark
+            jet-cli;
         };
         devShells = {
           default = with pkgs;
             mkShell {
               packages = [
                 nvim          # Neovim from nixvim
-                pkgs.rEnv     # R runtime from overlay
+                pkgs.rEnv     # R runtime for Ark
+                pkgs.ark      # Ark R Jupyter kernel
+                pkgs.jet-cli  # Jet CLI + Lua lib
+                pkgs.pythonEnv # Python + ipykernel
                 pkgs.opencode-with-auth # llm coding agents via different subscriptions, apis and providers
               ];
 
               shellHook = ''
-                echo "loaded ide for R + Python"
+                echo "loaded ide for R (jet.ark) + Python (jet.ipy)"
+                export JUPYTER_PATH="${pkgs.ipykernel-spec}''${JUPYTER_PATH:+:$JUPYTER_PATH}"
                 mkdir -p "$HOME/.config/opencode"
 
                 cp ${./config/opencode.json} "$HOME/.config/opencode/opencode.json"

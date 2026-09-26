@@ -1,7 +1,7 @@
 { inputs }:
 # add {inherit inputs; } if separate flake input is needed in overlay
 [
-  (import ./r-nvim.nix)
+  (import ./jet.nix { inherit inputs; })
   (import ./m_taskwarrior_d.nix)
   (import ./taskwarrior_nvim.nix)
   (import ./dante_nvim.nix)

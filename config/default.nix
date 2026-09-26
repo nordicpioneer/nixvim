@@ -50,7 +50,6 @@ _: {
     ./plugins/telescope.nix
     ./plugins/snacks.nix
     ./plugins/whichkey.nix
-    ./plugins/r-nvim.nix
-    ./plugins/iron.nix
+    ./plugins/jet.nix
   ];
 }
