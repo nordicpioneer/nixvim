@@ -49,6 +49,8 @@ _: {
     # Utils
     ./plugins/telescope.nix
     ./plugins/snacks.nix
+    ./plugins/image.nix
+    ./plugins/diagram.nix
     ./plugins/whichkey.nix
     ./plugins/jet.nix
   ];

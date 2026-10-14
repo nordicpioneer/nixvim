@@ -5,7 +5,8 @@
     jet-ipy
   ];
 
-  # Make Ark/Jet/ipykernel kernelspecs discoverable; ImageMagick for Snacks.image
+  # Make Ark/Jet/ipykernel kernelspecs discoverable.
+  # ImageMagick also serves image.nvim / diagram.nvim (Kitty graphics conversions).
   extraPackages = [
     pkgs.ark
     pkgs.jet-cli
