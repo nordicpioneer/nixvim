@@ -12,6 +12,7 @@ _: {
     ./plugins/startup.nix
     ./plugins/mini-hipatterns.nix
     ./plugins/bullets.nix
+    ./plugins/treesj.nix
 
     # Completion
     ./plugins/cmp.nix
@@ -21,7 +22,6 @@ _: {
 
     # Editor plugins and configurations
     ./plugins/mini-files.nix
-    ./plugins/mini-jump2d.nix
     ./plugins/comment.nix
     ./plugins/editor/treesitter.nix
     # +10 // line 10
@@ -41,6 +41,7 @@ _: {
 
     # LSP and formatting
     ./plugins/lsp/lsp.nix
+    ./plugins/lsp/lspsaga.nix
 
     # Git
     ./plugins/git/lazygit.nix
