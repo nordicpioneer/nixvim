@@ -12,6 +12,7 @@ _: {
     ./plugins/startup.nix
     ./plugins/mini-hipatterns.nix
     ./plugins/bullets.nix
+    ./plugins/markdown.nix
     ./plugins/treesj.nix
 
     # Completion
