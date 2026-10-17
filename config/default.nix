@@ -35,7 +35,7 @@ _: {
     ./plugins/editor/dante.nix
     ./plugins/editor/todo-comments.nix
     ./plugins/editor/m_taskwarrior_d.nix
-    ./plugins/editor/taskwarrior_nvim.nix
+    ./plugins/editor/taskwarrior_tui.nix
     ./plugins/editor/claude-code.nix
     ./plugins/editor/opencode.nix
 

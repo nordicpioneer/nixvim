@@ -7,14 +7,13 @@ final: prev: {
 
       src = final.fetchFromGitHub {
         owner = "huantrinh1802";
-        repo  = "m_taskwarrior_d.nvim";
-        rev   = "v0.10.0";
+        repo = "m_taskwarrior_d.nvim";
+        rev = "v0.10.0";
         hash = "sha256-N2xwOoDxWSdp0cqkl1WHuSFeO1lypDsB35PpEa061W8=";
       };
 
-      runtimeDeps = [
-        final.vimPlugins.nui-nvim
-      ];
+      # Pack nui into the vim plugin dependency closure (runtimeDeps is ignored by buildVimPlugin).
+      dependencies = [ final.vimPlugins.nui-nvim ];
     };
   };
 }

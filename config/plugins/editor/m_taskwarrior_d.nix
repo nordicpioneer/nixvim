@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   extraPlugins = [
-    pkgs.vimPlugins.m_taskwarrior_d #imported as overlay declared in overlay/...
+    pkgs.vimPlugins.nui-nvim # required by m_taskwarrior_d UI (TWView / edit popups)
+    pkgs.vimPlugins.m_taskwarrior_d # imported as overlay declared in overlay/...
   ];
   extraConfigLua = ''
     require("m_taskwarrior_d").setup({
@@ -29,22 +30,25 @@
       display_due_or_scheduled = true,
     })
 
-    -- Keymaps
+    -- Upstream apply_context_data does #next_line without nil checks when past EOF.
+    do
+      local utils = require("m_taskwarrior_d.utils")
+      local orig_get_line = utils.get_line
+      utils.get_line = function(line_number)
+        local line, num = orig_get_line(line_number)
+        if line == nil then
+          return "", num
+        end
+        return line, num
+      end
+    end
+
+    -- Keymaps (manual sync only — no BufEnter/BufWritePre auto-sync.
+    -- Auto-sync raced with LSP rename bufload and crashed on nil uuid.)
     vim.keymap.set("n", "<leader>te", "<cmd>TWEditTask<cr>", { desc = "TaskWarrior Edit", silent = true })
     vim.keymap.set("n", "<leader>tv", "<cmd>TWView<cr>", { silent = true })
     vim.keymap.set("n", "<leader>tu", "<cmd>TWUpdateCurrent<cr>", { silent = true })
-    vim.keymap.set("n", "<leader>ts", "<cmd>TWSyncTasks<cr>", { silent = true })
+    vim.keymap.set("n", "<leader>ts", "<cmd>TWSyncTasks<cr>", { desc = "TaskWarrior Sync", silent = true })
     vim.keymap.set("n", "<C-Space>", "<cmd>TWToggle<cr>", { silent = true })
-
-    -- Auto sync Markdown buffers
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePre" }, {
-      group = vim.api.nvim_create_augroup("TWTask", { clear = true }),
-      pattern = { "*.md", "*.markdown" },
-      callback = function()
-        vim.cmd("TWBufQueryTasks")
-        vim.cmd("TWSyncTasks")
-      end,
-    })
   '';
 }
-

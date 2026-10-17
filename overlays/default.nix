@@ -3,7 +3,6 @@
 [
   (import ./jet.nix { inherit inputs; })
   (import ./m_taskwarrior_d.nix)
-  (import ./taskwarrior_nvim.nix)
   (import ./dante_nvim.nix)
   (import ./opencode-openai-codex-auth.nix { inherit inputs; })
 ]
