@@ -14,6 +14,7 @@ _: {
     ./plugins/bullets.nix
     ./plugins/markdown.nix
     ./plugins/render-markdown.nix
+    ./plugins/zotcite.nix
     ./plugins/treesj.nix
 
     # Completion
