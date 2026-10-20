@@ -1,5 +1,4 @@
-# Pin image.nvim >= 1.4.0 for wrap-correct positioning via vim.fn.screenpos
-# (https://github.com/3rd/image.nvim/pull/266 — fixes #62).
+# Pin a recent image.nvim for diagram.nvim / jet (markdown docs use snacks.image).
 final: prev: {
   vimPlugins = prev.vimPlugins // {
     image-nvim = final.vimUtils.buildVimPlugin {
@@ -12,6 +11,9 @@ final: prev: {
         rev = "v1.5.1";
         hash = "sha256-brDtVYD3O+7N2RdQPIx2+6P+faXafoJDUITy0z0cIuA=";
       };
+
+      # Example/repro script at repo root, not a loadable module
+      nvimSkipModule = ["minimal-setup"];
     };
   };
 }

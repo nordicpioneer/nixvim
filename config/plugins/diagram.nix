@@ -1,9 +1,4 @@
 {pkgs, ...}: let
-  # Chromium under Nix needs --no-sandbox; mmdc only accepts it via puppeteerConfigFile (-p).
-  mermaidPuppeteerConfig = pkgs.writeText "mermaid-puppeteer.json" ''
-    {"args":["--no-sandbox","--disable-setuid-sandbox"]}
-  '';
-
   # d2 PNG export needs Playwright (broken CDN 404 on this package). Render SVG then rasterize.
   # d2 prints "success: ..." on stderr; diagram.nvim treats any stderr as a hard error + hit-enter,
   # so only forward stderr when the command actually fails.
@@ -52,7 +47,8 @@
     exit $?
   '';
 
-  # Extended markdown integration: filetype quarto/rmd + Quarto ```{mermaid} fences.
+  # Extended markdown integration: filetype quarto/rmd + Quarto ```{lang} fences.
+  # Mermaid is owned by snacks.image (wrap-safe); this handles plantuml/d2/gnuplot.
   markdownExtLua = ''
     local renderers = require("diagram/renderers")
     local ts_query = require("vim.treesitter.query")
@@ -61,13 +57,12 @@
     local query = nil
 
     local supported = {
-      mermaid = true,
       plantuml = true,
       d2 = true,
       gnuplot = true,
     }
 
-    ---Normalize fence info strings: "mermaid", "{mermaid}", "{mermaid echo=false}" → "mermaid"
+    ---Normalize fence info strings: "d2", "{d2}", "{d2 echo=false}" → "d2"
     local function normalize_lang(info)
       if not info then
         return nil
@@ -84,7 +79,6 @@
       id = "markdown_ext",
       filetypes = { "markdown", "quarto", "rmd" },
       renderers = {
-        renderers.mermaid,
         renderers.plantuml,
         renderers.d2,
         renderers.gnuplot,
@@ -150,23 +144,8 @@ in {
       integrations = [
         {__raw = "require('diagram_integrations.markdown_ext')";}
       ];
-      renderer_options = {
-        # Render resolution (PNG pixels). Independent of image.nvim inline display cap.
-        # Needed so <leader>dg → o (system viewer) is sharp; cache is shared with inline preview.
-        mermaid = {
-          theme = "dark";
-          background = "transparent";
-          scale = 2;
-          width = 2400;
-          height = 1600;
-          cli_args = [
-            "-p"
-            "${mermaidPuppeteerConfig}"
-          ];
-        };
-        # Do not set d2.theme_id: CLI -t overrides vars.d2-config.theme-id in the source.
-        # Per diagram: vars: { d2-config: { theme-id: 200 } }  # 200 Dark Mauve, 201 Dark Flagship, 0 Neutral
-      };
+      # Do not set d2.theme_id: CLI -t overrides vars.d2-config.theme-id in the source.
+      # Per diagram: vars: { d2-config: { theme-id: 200 } }  # 200 Dark Mauve, 201 Dark Flagship, 0 Neutral
     };
   };
 
@@ -187,7 +166,6 @@ in {
   '';
 
   extraPackages = [
-    pkgs.mermaid-cli
     d2ForDiagram
   ];
 }
