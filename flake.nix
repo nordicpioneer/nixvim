@@ -53,7 +53,8 @@
             opencode-openai-codex-auth
             opencode-with-auth
             ark
-            jet-cli;
+            jet-cli
+            tuicr;
         };
         devShells = {
           default = with pkgs;

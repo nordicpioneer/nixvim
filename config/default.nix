@@ -39,7 +39,9 @@ _: {
     ./plugins/editor/todo-comments.nix
     ./plugins/editor/m_taskwarrior_d.nix
     ./plugins/editor/taskwarrior_tui.nix
+    ./plugins/editor/tuicr.nix
     ./plugins/editor/claude-code.nix
+
     ./plugins/editor/opencode.nix
 
     # LSP and formatting
