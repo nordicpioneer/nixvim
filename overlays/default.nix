@@ -7,5 +7,4 @@
   (import ./image_nvim.nix)
   (import ./zotcite.nix)
   (import ./tuicr_nvim.nix)
-  (import ./opencode-openai-codex-auth.nix { inherit inputs; })
 ]

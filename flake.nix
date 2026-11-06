@@ -11,13 +11,6 @@
     # Ark (posit-dev) needs a newer nixpkgs/rustc than the main pin; used only for pkgs.ark
     nixpkgs-ark.url =
       "github:nixos/nixpkgs/4975466d324710c576dc11ad614684e6bd8cad8e";
-
-    # OpenCode v1.14.30 Used by:
-    #   ./overlays/opencode-openai-codex-auth.nix
-    # v1.14.35 segfaulted on aarch64-linux here, while v1.14.30 works
-    # with opencode-openai-codex-auth browser subscription login.
-    nixpkgs-opencode.url =
-      "github:nixos/nixpkgs/c6d65881c5624c9cae5ea6cedef24699b0c0a4c0";
   };
 
   outputs = {
@@ -50,8 +43,6 @@
         packages = {
           default = nvim;
           inherit (pkgs)
-            opencode-openai-codex-auth
-            opencode-with-auth
             ark
             jet-cli
             tuicr;
@@ -65,16 +56,11 @@
                 pkgs.ark      # Ark R Jupyter kernel
                 pkgs.jet-cli  # Jet CLI + Lua lib
                 pkgs.pythonEnv # Python + ipykernel
-                pkgs.opencode-with-auth # llm coding agents via different subscriptions, apis and providers
               ];
 
               shellHook = ''
                 echo "loaded ide for R (jet.ark) + Python (jet.ipy)"
                 export JUPYTER_PATH="${pkgs.ipykernel-spec}''${JUPYTER_PATH:+:$JUPYTER_PATH}"
-                mkdir -p "$HOME/.config/opencode"
-
-                cp ${./config/opencode.json} "$HOME/.config/opencode/opencode.json"
-                chmod u+w "$HOME/.config/opencode/opencode.json"
               '';
             };
         };

@@ -42,8 +42,6 @@ _: {
     ./plugins/editor/tuicr.nix
     ./plugins/editor/claude-code.nix
 
-    ./plugins/editor/opencode.nix
-
     # LSP and formatting
     ./plugins/lsp/lsp.nix
     ./plugins/lsp/lspsaga.nix
